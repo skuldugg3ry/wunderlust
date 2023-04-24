@@ -150,9 +150,22 @@ table {
     --light-Gray: #EAEAEA;
     --white: #FFFFFF;
     --black: #000000;
-
 }
 
+#skip {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+#skip:focus {
+    position: static;
+    width: auto;
+    height: auto;
+}
 
 /* For content that needs to be hidden but still accessible, see https://webaim.org/techniques/css/invisiblecontent/ for more information */
 .sr-only {
@@ -165,7 +178,6 @@ table {
 }
 
 
-
 /* General Styles */
 * {
     box-sizing: border-box;
@@ -175,178 +187,288 @@ table {
 
 body {
     font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
     line-height: 1.6;
+    background-color: #f4f4f4;
     color: #333;
-}
-
-a {
-    text-decoration: none;
-    color: #333;
-}
-
-ul {
-    list-style: none;
 }
 
 img {
     max-width: 100%;
     height: auto;
+    display: block;
 }
 
-/* Header and Navigation */
+a {
+    text-decoration: none;
+}
+
+/* Header */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem;
-    background-color: #f7f7f7;
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
 }
 
 header h1 {
-    margin-left: 1rem;
     font-family: 'Molle', cursive;
-    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
 }
 
 header p {
-    margin-left: 1rem;
     font-size: 0.9rem;
+    margin-bottom: 1rem;
 }
 
-nav ul {
-    display: flex;
+#logo {
+    display: inline-block;
 }
 
-nav ul li {
-    margin-right: 1rem;
-}
-
-nav ul li a {
-    padding: 0.25rem 0.5rem;
+/* Navigation */
+nav {
+    margin-bottom: 1rem;
 }
 
 #menu-toggle {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+}
+
+#menu-toggle input {
     display: none;
+}
+
+#menu-toggle label {
+    display: block;
+    background-color: #555;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#menu-toggle ul {
+    display: none;
+    list-style-type: none;
+    padding: 0;
+    background-color: #555;
+}
+
+#menu-toggle li a {
+    display: block;
+    color: #fff;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+}
+
+#menu-toggle input:checked~ul {
+    display: block;
 }
 
 /* Main Content */
 main {
-    padding: 2rem;
+    padding: 1rem;
 }
 
-#intro p {
-    margin-bottom: 1.5rem;
+h2,
+h3 {
+    font-family: 'Molle', cursive;
+    font-style: italic;
+    font-weight: 400;
+    margin-bottom: 0.8rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+h3 {
+    font-size: 1.6rem;
+}
+
+h4,
+p,
+q,
+small,
+nav,
+button,
+form {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+h4 {
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+}
+
+p {
+    margin-bottom: 1.2rem;
 }
 
 #img-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 
-#plan {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
-#testimonials {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
+#plan,
+#testimonials,
 #about {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Contact Form */
-#contact {
-    margin-top: 1.5rem;
-}
-
+/* ~~~~~~~~~~ FORM STYLING ~~~~~~~~~~ */
 form {
     display: grid;
+    gap: 20px;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+}
+
+#names,
+#nums,
+#selects {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+form fieldset {
+    border: none;
+    padding: 0;
+}
+
+form legend {
+    display: none;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
 input[type="submit"] {
-    grid-column: span 2;
-    background-color: #333;
-    color: #fff;
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
     border: none;
-    padding: 0.5rem;
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-family: 'Montserrat', sans-serif;
 }
 
 input[type="submit"]:hover {
-    background-color: #555;
+    background-color: #45a049;
 }
 
-/* Footer */
+.custom-select {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.custom-select select {
+    display: none;
+}
+
+.custom-select::before {
+    content: attr(data-value);
+    display: inline-block;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    padding: 12px 20px;
+    width: 100%;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.custom-select:hover::before {
+    border-color: #888;
+}
+
+.custom-select::after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    margin-top: -3px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #333;
+}
+
+/* ~~~~~~~~~~ FOOTER STYLING ~~~~~~~~~~ */
 footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #f7f7f7;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
 }
 
+footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
 
+footer a:hover {
+    text-decoration: underline;
+}
 
-/* Responsive Styles */
-@media (max-width: 428px) {
-
-    /* Small Screen Styles */
-    header {
+/* ~~~~~~~~~~ RESPONSIVE DESIGN ~~~~~~~~~~ */
+@media screen and (max-width: 768px) {
+    header nav ul {
+        display: flex;
         flex-direction: column;
     }
 
-    header h1,
-    header p {
-        margin-left: 0;
+    header nav ul li {
+        text-align: center;
+        padding: 10px 0;
     }
 
-    #menu-toggle {
+    header nav ul li a {
+        padding: 10px;
+        display: inline-block;
+    }
+
+    .hero {
+        height: 300px;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    footer a {
         display: block;
-    }
-
-    nav ul {
-        display: none;
-    }
-}
-
-@media (max-width: 768px) {
-
-    /* Medium Screen Styles */
-    #img-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    #plan,
-    #testimonials,
-    #about {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 1920px) {
-
-    /* Large Screen Styles */
-    #img-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    #plan,
-    #testimonials,
-    #about {
-        grid-template-columns: repeat(2, 1fr);
+        margin: 5px 0;
     }
 }
