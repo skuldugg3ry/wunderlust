@@ -188,8 +188,8 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: var(--white);
+    color: var(--dark-Gray);
 }
 
 img {
@@ -202,25 +202,39 @@ a {
     text-decoration: none;
 }
 
+h1,
+h2,
+h3 {
+    font-family: 'Molle', cursive;
+    font-weight: 400;
+    color: var(--dark-Gray);
+}
+
+h4,
+p,
+q,
+small,
+nav,
+button,
+form {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: var(--dark-Gray);
+}
+
 /* Header */
 header {
-    background-color: #333;
-    color: #fff;
+    background-image: linear-gradient(to bottom, var(--teal), var(--white));
     padding: 1rem;
-    text-align: center;
+    text-align: left;
 }
 
 header h1 {
-    font-family: 'Molle', cursive;
-    font-style: italic;
-    font-weight: 400;
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+    font-size: 50px;
 }
 
 header p {
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
+    font-size: 20px;
 }
 
 #logo {
@@ -235,6 +249,7 @@ nav {
 #menu-toggle {
     display: inline-block;
     position: relative;
+    text-align: center;
     width: 100%;
 }
 
@@ -244,7 +259,7 @@ nav {
 
 #menu-toggle label {
     display: block;
-    background-color: #555;
+    background-color: var(--yellow);
     padding: 0.6rem 1rem;
     font-size: 1rem;
     cursor: pointer;
@@ -254,16 +269,207 @@ nav {
     display: none;
     list-style-type: none;
     padding: 0;
-    background-color: #555;
+    background-color: var(--teal);
+    color: var(--black);
 }
 
 #menu-toggle li a {
     display: block;
-    color: #fff;
     padding: 0.8rem 1rem;
     font-size: 1rem;
+    color: var(--black);
 }
 
 #menu-toggle input:checked~ul {
     display: block;
+}
+
+/* Main Content */
+main {
+    padding: 1rem;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+#img-grid {
+    display: flex;
+    flex-direction: column;
+    column-gap: 20px;
+}
+
+#plan {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--yellow);
+}
+
+#plan section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border-color: var(--white);
+}
+
+
+
+#plan,
+#testimonials,
+#about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ~~~~~~~~~~ FORM STYLING ~~~~~~~~~~ */
+form {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#names,
+#nums,
+#selects {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+form fieldset {
+    border: none;
+    padding: 0;
+}
+
+form legend {
+    display: none;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.custom-select {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.custom-select select {
+    display: none;
+}
+
+.custom-select::before {
+    content: attr(data-value);
+    display: inline-block;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    padding: 12px 20px;
+    width: 100%;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.custom-select:hover::before {
+    border-color: #888;
+}
+
+.custom-select::after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    margin-top: -3px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #333;
+}
+
+/* ~~~~~~~~~~ FOOTER STYLING ~~~~~~~~~~ */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ~~~~~~~~~~ RESPONSIVE DESIGN ~~~~~~~~~~ */
+@media screen and (max-width: 768px) {
+    header nav ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    header nav ul li {
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    header nav ul li a {
+        padding: 10px;
+        display: inline-block;
+    }
+
+    .hero {
+        height: 300px;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    footer a {
+        display: block;
+        margin: 5px 0;
+    }
 }
