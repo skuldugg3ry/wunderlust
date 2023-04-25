@@ -138,6 +138,10 @@ table {
 
 /* End of reset */
 
+
+
+
+
 /* Start of custom styles */
 @import url(https://fonts.google.com/share?selection.family=Molle:ital@1%7CMontserrat);
 
@@ -210,6 +214,11 @@ h3 {
     color: var(--dark-Gray);
 }
 
+h2,
+h3 {
+    font-size: 40px;
+}
+
 h4,
 p,
 q,
@@ -221,6 +230,18 @@ form {
     font-weight: 400;
     color: var(--dark-Gray);
 }
+
+h4 {
+    font-size: 26px;
+    font-weight: 600;
+}
+
+
+
+
+
+
+
 
 /* Header */
 header {
@@ -240,6 +261,14 @@ header p {
 #logo {
     display: inline-block;
 }
+
+
+
+
+
+
+
+
 
 /* Navigation */
 nav {
@@ -284,19 +313,23 @@ nav {
     display: block;
 }
 
-/* Main Content */
+
+
+
+
+
+
+
+/* plan section */
 main {
     padding: 1rem;
 }
 
-h2 {
-    font-size: 40px;
-}
-
 #img-grid {
-    display: flex;
-    flex-direction: column;
-    column-gap: 20px;
+    display: grid;
+    grid-template-columns: 1;
+    gap: 10px;
+    padding-top: 1rem;
 }
 
 #plan {
@@ -310,114 +343,256 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem;
-    border-color: var(--white);
+    justify-content: center;
+    background-color: var(--teal);
+    width: 250px;
+    height: 250px;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#plan section h4 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#plan section img {
+    margin-top: 10px;
+    width: 150px;
+    height: 150px;
 }
 
 
 
-#plan,
-#testimonials,
+
+
+
+
+/* testimonials section */
+#testimonials h3 {
+    text-align: left;
+}
+
+#testimonials section {
+    display: inline-block;
+    text-align: center;
+    margin: 20px;
+}
+
+#testimonials img {
+    display: block;
+    margin: 0 auto;
+}
+
+#testimonials h4 {
+    margin-top: 10px;
+}
+
+#testimonials p,
+#testimonials q {
+    display: block;
+    margin: 0 auto;
+}
+
+#testimonials q {
+    font-style: italic;
+}
+
+
+
+
+
+
+/* about section */
 #about {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-color: var(--blue);
 }
 
-/* ~~~~~~~~~~ FORM STYLING ~~~~~~~~~~ */
-form {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(2, 1fr);
+#about h3 {
+    text-align: left;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+#about div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+#about section {
+    box-sizing: border-box;
+    width: 50%;
+    text-align: center;
+    padding: 10px;
+}
+
+#about img,
+#about h4,
+#about p {
+    display: block;
+    margin: 0 auto;
+}
+
+#about h4 {
+    font-size: 20px;
+}
+
+#about img {
+    width: 110px;
+    height: 110px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* contact section */
+#contact {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#contact h3 {
+    text-align: left;
+}
+
+.form-required {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.required {
+    color: purple;
 }
 
 #names,
 #nums,
 #selects {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
+    margin-bottom: 20px;
 }
 
-form fieldset {
-    border: none;
-    padding: 0;
-}
-
-form legend {
-    display: none;
-}
-
-form label {
-    display: block;
-    margin-bottom: 5px;
+label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
 }
 
 input[type="text"],
 input[type="email"],
-input[type="tel"] {
+input[type="tel"],
+.custom-select select {
+    display: block;
     width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    border: 2px solid purple;
+    padding: 5px;
+    font-size: 16px;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
 }
 
-input[type="submit"] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
+.radio-label {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    /*
+    margin-left: 10px;
+    line-height: 30px;
+    padding-top: 20px;*/
+}
+
+fieldset {
     border: none;
-    cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
+    padding: 0;
+    margin: 0;
 }
 
-input[type="submit"]:hover {
-    background-color: #45a049;
+.radio-input input {
+    display: none;
+}
+
+.radio-control {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    border: 4px solid purple;
+    position: relative;
+}
+
+.radio-input input:checked+.radio-control::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: purple;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .custom-select {
     position: relative;
-    display: inline-block;
+    display: block;
     width: 100%;
+    margin-bottom: 20px;
 }
 
 .custom-select select {
-    display: none;
-}
-
-.custom-select::before {
-    content: attr(data-value);
-    display: inline-block;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    padding: 12px 20px;
+    appearance: none;
     width: 100%;
-    height: 100%;
-    font-family: 'Montserrat', sans-serif;
+    padding: 7px 30px 7px 7px;
+    border: 2px solid purple;
+    font-size: 16px;
+    box-sizing: border-box;
 }
 
-.custom-select:hover::before {
-    border-color: #888;
-}
-
-.custom-select::after {
-    content: "";
+.custom-select .focus {
+    position: absolute;
+    right: 10px;
+    top: calc(50% - 5px);
     width: 0;
     height: 0;
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    margin-top: -3px;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    border-top: 5px solid #333;
+    border-top: 10px solid purple;
+    pointer-events: none;
 }
+
+input[type="submit"] {
+    display: block;
+    width: 100%;
+    background-color: purple;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
 
 /* ~~~~~~~~~~ FOOTER STYLING ~~~~~~~~~~ */
 footer {
