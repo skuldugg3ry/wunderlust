@@ -146,16 +146,7 @@ Start of custom styles
 */
 @import url(https://fonts.google.com/share?selection.family=Molle:ital@1%7CMontserrat);
 
-:root {
-    --yellow: #F6D64A;
-    --teal: #55BCD5;
-    --purple: #9B26B0;
-    --blue: #499BD2;
-    --dark-Gray: #222222;
-    --light-Gray: #EAEAEA;
-    --white: #FFFFFF;
-    --black: #000000;
-}
+
 
 #skip {
     position: absolute;
