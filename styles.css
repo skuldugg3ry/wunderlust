@@ -1063,9 +1063,10 @@ Responsive Design - Medium Screen
     nav {
         grid-row: 1;
         grid-column: 3;
+        justify-self: end;
         margin-top: -55px;
         justify-self: end;
-        margin-right: -20px;
+
     }
 
     #menu-toggle li {
